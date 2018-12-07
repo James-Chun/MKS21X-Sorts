@@ -34,11 +34,17 @@ public class Sorts{
     }
 
     public static void main(String[] args){
-
+      Random randgen = new Random();
+      int[] list = new int[Integer.parseInt(args[0])];
+      for (int i=0;i<Integer.parseInt(args[0]);i++){
+        list[i]=randgen.nextInt()/5555567;
+      }
+      /*//testing to see if list has rand values
+      for (int i=0;i<Integer.parseInt(args[0]);i++){
+        System.out.println(list[i]);
+      }*/
     }
 
-  }
 
 
   }
-}
