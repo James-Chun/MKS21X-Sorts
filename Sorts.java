@@ -22,23 +22,30 @@ public class Sorts{
       int places = 0; //the end will already be sorted so we can stop loop a little earlier each pass
       for (int i=0;i<data.length-places;i++){ //need overall loop of data.length times to swap all the values
         for (int i2=0;i2<data.length-places;i2++){
-<<<<<<< HEAD
           if (bigger<data[i]){//check for the bigger value
             bigger = data[i];
           }
         }
-        data[i]=data[data.length-places];//at the end of each loop for each value, change accordingly
-=======
-          if (bigger<data[i]){
-            bigger = data[i];
-          }
-        }
-        data[i]=data[data.length-places];
->>>>>>> cf0dfe914e3816b0adfd67038878f3dbb9951bc4
-        data[data.length-places]=bigger;
+        data[i]=data[data.length-places-1];//at the end of each loop for each value, change accordingly
+        data[data.length-places-1]=bigger;
         places++;
       }
 
+    }
+
+    public static void insertionSort (int[] data){
+      int placeToInsert = 0;
+      int temp = data[1];
+
+      if (data.length!=0){
+
+        for (int i=1;i<data.length;i++){
+          temp = data[i];
+          for (int i2=0;i2<=i;i2++){
+
+          }
+        }
+      }
     }
 
     public static void main(String[] args){
@@ -47,7 +54,6 @@ public class Sorts{
       for (int i=0;i<Integer.parseInt(args[0]);i++){
         list[i]=randgen.nextInt()/5555567;
       }
-<<<<<<< HEAD
 
       selectionSort(list);
       System.out.println(list);
@@ -56,14 +62,8 @@ public class Sorts{
         System.out.println(list[i]);
       }
 
-=======
-      /*//testing to see if list has rand values
-      for (int i=0;i<Integer.parseInt(args[0]);i++){
-        System.out.println(list[i]);
-      }*/
->>>>>>> cf0dfe914e3816b0adfd67038878f3dbb9951bc4
     }
 
 
 
-  }
+}
