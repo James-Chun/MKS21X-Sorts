@@ -32,18 +32,21 @@ public class Sorts{
     }
 
     public static void insertionSort (int[] data){
-      int placeToInsert = 0;
-      int temp = data[1];
+      for (int initialLoop=1;initialLoop<data.length;initialLoop++){ // loop to go through all the values
+        int value = data[initialLoop];
+        for (int secondLoop=0;secondLoop<initialLoop;secondLoop++){ // loop to go through sorted values
+          if (data[secondLoop]>data[initialLoop]){ // if value at initialLoop is smaller than value at secondLoop
+            int temp = data[secondLoop];  // place value at initialLoop into secondLoop and shift everything over
+            data[secondLoop]=data[initialLoop];
+            for (int shiftLoop=secondLoop+1;shiftLoop<initialLoop;shiftLoop++){
 
-      if (data.length!=0){
+              temp = data[shiftLoop];
 
-        for (int i=1;i<data.length;i++){
-          temp = data[i];
-          for (int i2=0;i2<=i;i2++){
-
+            }
           }
         }
       }
+
     }
 
     public static void main(String[] args){
