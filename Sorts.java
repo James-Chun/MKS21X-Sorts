@@ -18,17 +18,15 @@ public class Sorts{
   }
 
     public static void bubbleSort(int[] data){
-      int bigger = data[0]; //variable needed to store bigger value during swap
-      int places = 0; //the end will already be sorted so we can stop loop a little earlier each pass
-      for (int i=0;i<data.length-places;i++){ //need overall loop of data.length times to swap all the values
-        for (int i2=0;i2<data.length-places;i2++){
-          if (bigger<data[i]){//check for the bigger value
-            bigger = data[i];
+      for (int a =0;a<data.length;a++){
+        for (int i=1;i<data.length;i++){
+          int bigger = data[i]; //variable needed to store bigger value during swap
+          if (data[i]<data[i-1]){ //check to see if previous value is bigger than current
+            bigger = data[i-1]; // if bigger, then swap using temporary bigger variable
+            data[i-1]=data[i];
+            data[i]=bigger;
           }
         }
-        data[i]=data[data.length-places-1];//at the end of each loop for each value, change accordingly
-        data[data.length-places-1]=bigger;
-        places++;
       }
 
     }
