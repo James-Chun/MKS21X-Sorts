@@ -47,18 +47,31 @@ public class Sorts{
     }
 
     public static void insertionSort (int[] data){
-      for (int initialLoop=1;initialLoop<data.length;initialLoop++){ // loop to go through all the values
-        int value = data[initialLoop];
-        for (int secondLoop=0;secondLoop<initialLoop;secondLoop++){ // loop to go through sorted values
-          if (data[secondLoop]>data[initialLoop]){ // if value at initialLoop is smaller than value at secondLoop
-            int temp = data[secondLoop];  // place value at initialLoop into secondLoop and shift everything over
-            data[secondLoop]=data[initialLoop];
-            for (int shiftLoop=secondLoop+1;shiftLoop<initialLoop;shiftLoop++){
+      if (!(sorted(data))){
+        int value = data[0];
+        int toMovevalue = data[0];
+        int currentValue = data[0];
+        for (int initialLoop=1;initialLoop<data.length;initialLoop++){ // loop to go through all the values
+          value = data[initialLoop];
 
-              temp = data[shiftLoop];
+          for (int secondLoop=0;secondLoop<initialLoop;secondLoop++){ // loop to go through sorted values
+
+            if (data[secondLoop]>data[initialLoop]){ // if value at initialLoop is smaller than value at secondLoop
+              toMovevalue = data[secondLoop]; // place value at initialLoop into secondLoop and shift everything over
+              data[secondLoop]=data[initialLoop];
+
+              for (int shiftLoop=secondLoop+1;shiftLoop<=initialLoop;shiftLoop++){ //loop to shift everything over
+                currentValue=data[shiftLoop];
+                //System.out.println(" "+currentValue);
+                data[shiftLoop]=toMovevalue;
+                toMovevalue=currentValue;
+                //System.out.print(" "+toMovevalue);
+              }
 
             }
+
           }
+
         }
       }
 
@@ -68,15 +81,26 @@ public class Sorts{
       if (args.length>0){
         Random randgen = new Random();
         int[] list = new int[Integer.parseInt(args[0])];
-        for (int i=0;i<Integer.parseInt(args[0]);i++){
+
+        for (int i=0;i<Integer.parseInt(args[0]);i++){ //making random list
           list[i]=randgen.nextInt()/5555567;
         }
-
-        selectionSort(list);
-
+        /* checking list
         for (int i=0;i<Integer.parseInt(args[0]);i++){
           System.out.println(list[i]);
         }
+        System.out.println("\n");
+        */
+
+        //selectionSort(list);
+        //bubbleSort(list);
+        insertionSort(list);
+
+        /* checking to see if list is sorted
+        for (int i=0;i<Integer.parseInt(args[0]);i++){
+          System.out.println(list[i]);
+        }*/
+
 
         //System.out.println(sorted(list));
 
@@ -91,6 +115,8 @@ public class Sorts{
         for (int i =0;i<10;i++){
           System.out.println(list[i]);
         }
+
+
 
       }
 
